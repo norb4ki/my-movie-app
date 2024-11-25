@@ -1,5 +1,5 @@
 const ERoutePaths = {
-    MAIN_PATH : '/main',
+    MAIN_PATH : '/',
     MOVIE_PATH : '/movie/id/'
 }
 

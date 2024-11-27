@@ -1,21 +1,47 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    favorites: [],
+    data: [],
+    loading: false,
+    error: null
 };
 
 const favoriteSlice = createSlice({
     name: 'favorite',
     initialState,
     reducers:{
-        addFavorite: (state, action) => {
-
+        getFavoriteRequest: (state) => {
+            state.loading = true;
+            state.error = null;
         },
-        removeFavorite: (state, action) => {
-
+        getFavoriteSuccess: (state, action) => {
+            state.loading = false;
+            state.data = action.payload;
+        },
+        getFavoriteFailure: (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        },
+        postFavoriteRequest: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        postFavoriteSuccess: (state) => {
+            state.loading = false;
+        },
+        postFavoriteFailure: (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
         },
     }
 })
 
-export const { addFavorite, removeFavorite } = favoriteSlice.actions;
+export const {
+    getFavoriteRequest,
+    getFavoriteFailure,
+    getFavoriteSuccess,
+    postFavoriteRequest,
+    postFavoriteFailure,
+    postFavoriteSuccess,
+} = favoriteSlice.actions;
 export default favoriteSlice.reducer;

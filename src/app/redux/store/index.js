@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import favoriteReducer from 'src/app/redux/slices/favoriteSlice'
+import favoriteReducer from '../slices/favoriteSlice';
 
 const store = configureStore({
     reducer: {

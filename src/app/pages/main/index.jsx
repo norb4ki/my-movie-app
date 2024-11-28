@@ -7,7 +7,7 @@ import Movie from "../../components/movie/index.jsx";
 const MainPage = () => {
     return (
         <>
-            <Dropdown></Dropdown>
+
             {fake.map((value) => <Movie key={value.id} {...value} />)}
         </>
     );

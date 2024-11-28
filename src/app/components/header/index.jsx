@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({children, className}) => {
     return (
-        <h1>
-           My Movie App
-        </h1>
+        <header className={className}>
+            {children}
+        </header>
     );
 };
 

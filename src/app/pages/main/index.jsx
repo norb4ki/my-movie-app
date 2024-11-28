@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Dropdown from "../../components/dropdown/index.jsx";
 import fake from "./fake/index.js";
 import {} from './main.css'
@@ -6,6 +6,7 @@ import Movie from "../../components/movie/index.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {getAirRequest} from "../../redux/slices/movie/index.js";
 import {postFavoriteRequest} from "../../redux/slices/favorite/index.js";
+import {movieCategory, POPULAR_OPTION} from "../../components/dropdown/utils/index.js";
 
 
 const MainPage = () => {
@@ -13,6 +14,7 @@ const MainPage = () => {
     const { popularData, airData, loading, error } = useSelector(
         (state) => state.movieReducer
     );
+    const [category, setCategory] = useState(POPULAR_OPTION)
 
     useEffect(() => {
         dispatch(getAirRequest({ page: 1, language: "en-US" }));
@@ -35,6 +37,7 @@ const MainPage = () => {
     if (error) return <div>Error: {error}</div>;
     return (
         <div className={'main-page_container'}>
+            <Dropdown optionList={movieCategory} onChange={setCategory}/>
             <div className={'movie-list_container'}>
                 {Array.isArray(airData.results) && airData.results.length > 0 ? (
                     airData.results?.map((data) => (

@@ -2,7 +2,7 @@ import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {} from './movie.css'
 import {ERoutePaths} from "../../common/route/enum/index.js";
-import {IMAGE_BASE_URL, POSTER_LARGE, POSTER_MEDIUM} from "../../services/apiUtils/index.js";
+import {IMAGE_BASE_URL, POSTER_LARGE} from "../../services/apiUtils/index.js";
 
 const Movie = ({data}) => {
     const navigate = useNavigate();

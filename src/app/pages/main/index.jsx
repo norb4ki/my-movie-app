@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import Dropdown from "../../components/dropdown/index.jsx";
-import fake from "./fake/index.js";
 import {} from './main.css'
 import Movie from "../../components/movie/index.jsx";
 import {useDispatch, useSelector} from "react-redux";

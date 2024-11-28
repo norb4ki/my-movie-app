@@ -9,7 +9,9 @@ export const fetchData = async (endpoint, options = {}) =>{
         if(!response.ok){
             throw new Error(`HTTP Error ${response.status} ${response.statusText}`)
         }
-        return await response.json();
+        const dataR = await response.json();
+        console.log(dataR)
+        return dataR;
     } catch(error){
         console.error('Fetch Error', error);
         throw error;

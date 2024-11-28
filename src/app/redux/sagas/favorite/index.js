@@ -3,8 +3,11 @@ import {editFavoriteMovies, getFavoriteMovies} from "../../../services/favoriteS
 import {
     getFavoriteFailure,
     getFavoriteRequest,
-    getFavoriteSuccess, postFavoriteFailure, postFavoriteRequest, postFavoriteSuccess
-} from "../../slices/favoriteSlice/index.js";
+    getFavoriteSuccess,
+    postFavoriteFailure,
+    postFavoriteRequest,
+    postFavoriteSuccess
+} from "../../slices/favorite/index.js";
 
 function* getFavoriteSaga(action){
     try{

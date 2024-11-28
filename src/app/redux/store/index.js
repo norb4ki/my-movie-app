@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import favoriteReducer from '../slices/favoriteSlice';
+import favoriteReducer from '../slices/favorite';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from "../sagas/root/index.js";
 

@@ -6,7 +6,7 @@ import {
     getAirRequest,
     getAirFailure,
     getAirSuccess
-} from "../../slices/moviesSlice/index.js";
+} from "../../slices/movie/index.js";
 import {getAirMovies, getPopularMovies} from "../../../services/movieService/index.js";
 
 function* getPopularSaga(action){
@@ -27,7 +27,7 @@ function* getAirSaga(action){
     }
 }
 
-export default function* watchFavoriteSaga(){
+export default function* watchMovieSaga(){
     yield takeLatest(getPopularRequest.type, getPopularSaga);
     yield takeLatest(getAirRequest.type, getAirSaga)
 }

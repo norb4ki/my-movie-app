@@ -1,8 +1,9 @@
 import React from 'react';
+import {} from './header.css'
+const Header = ({children}) => {
 
-const Header = ({children, className}) => {
     return (
-        <header className={className}>
+        <header>
             {children}
         </header>
     );

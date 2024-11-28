@@ -5,7 +5,8 @@ export const getPopularMovies = async (page=1, language = 'en-US') =>{
     return await fetchData(endpoint)
 }
 
-export const getAiringMovies = async (page =1, language='en-US') => {
+export const getAirMovies = async (page =1, language='en-US') => {
     const endpoint = `/movie/now_playing?language=${language}&page=${page}`;
+    return await fetchData(endpoint)
 }
 

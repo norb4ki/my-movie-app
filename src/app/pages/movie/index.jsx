@@ -2,6 +2,7 @@ import React from 'react';
 import {useLocation} from "react-router-dom";
 import {IMAGE_BASE_URL, POSTER_LARGE} from "../../services/apiUtils/index.js";
 import {} from './style.css'
+import FavoriteButton from "../../components/favorite/index.jsx";
 
 const MoviePage = () => {
     const location = useLocation()
@@ -22,6 +23,7 @@ const MoviePage = () => {
                     <p>Vote Average: {data.vote_average}</p>
                 </div>
             </div>
+            <FavoriteButton movie_id={data.id}/>
         </div>
     );
 };

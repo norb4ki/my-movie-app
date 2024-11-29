@@ -7,8 +7,8 @@ export const getFavoriteMovies = async (page=1, language = 'en-US') =>{
     return await fetchData(endpoint)
 }
 
-export const editFavoriteMovies = async (body, isFavorite) =>{
-    const options = {...postFetchOptions, body: JSON.stringify({...body, favorite:isFavorite})}
+export const editFavoriteMovies = async (body) =>{
+    const options = {...postFetchOptions, body: JSON.stringify({...body})}
     const endpoint = `/account/${DEFAULT_ACCOUNT_ID}/favorite`;
     return await fetchData(endpoint, options)
 }

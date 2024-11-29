@@ -1,4 +1,3 @@
-import React from 'react';
 import {} from './dropdown.css'
 
 const Dropdown = ({optionList, onChange}) => {

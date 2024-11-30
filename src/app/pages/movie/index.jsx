@@ -1,4 +1,3 @@
-import React from 'react';
 import {useLocation} from "react-router-dom";
 import {IMAGE_BASE_URL, POSTER_LARGE} from "../../services/apiUtils/index.js";
 import {} from './style.css'
@@ -22,8 +21,9 @@ const MoviePage = () => {
                 <div className="movie-page_stats">
                     <p>Vote Average: {data.vote_average}</p>
                 </div>
+                <FavoriteButton movie_id={data.id}/>
             </div>
-            <FavoriteButton movie_id={data.id}/>
+
         </div>
     );
 };

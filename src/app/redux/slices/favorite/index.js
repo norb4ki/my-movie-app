@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     data: [],
     loading: false,
-    error: null
+    error: null,
+    edited: false
 };
 
 const favoriteSlice = createSlice({
@@ -13,6 +14,7 @@ const favoriteSlice = createSlice({
         getFavoriteRequest: (state) => {
             state.loading = true;
             state.error = null;
+            state.edited = false;
         },
         getFavoriteSuccess: (state, action) => {
             state.loading = false;
@@ -28,6 +30,7 @@ const favoriteSlice = createSlice({
         },
         postFavoriteSuccess: (state) => {
             state.loading = false;
+            state.edited = true;
         },
         postFavoriteFailure: (state, action) => {
             state.loading = false;

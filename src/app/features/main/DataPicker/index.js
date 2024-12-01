@@ -7,12 +7,13 @@ import { getAirRequest, getPopularRequest } from "../../../redux/slices/movie/in
 const useDataPicker = (category) => {
     const dispatch = useDispatch();
     const { popularData, airData } = useSelector((state) => state.movieReducer);
-    const { data } = useSelector((state) => state.favoriteReducer);
+    const { data, edited } = useSelector((state) => state.favoriteReducer);
 
     useEffect(() => {
         switch (category) {
             case FAVORITE_OPTION:
-                dispatch(getFavoriteRequest({ page: 1, language: "en-US" }));
+                if(edited)
+                    dispatch(getFavoriteRequest({ page: 1, language: "en-US" }));
                 break;
             case POPULAR_OPTION:
                 dispatch(getPopularRequest({ page: 1, language: "en-US" }));

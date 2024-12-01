@@ -23,7 +23,7 @@ const useDataPicker = (category) => {
     useEffect(() => {
         switch (category) {
             case FAVORITE_OPTION:
-                if(edited)
+                if(edited || data.length===0)
                     dispatch(getFavoriteRequest({ page: 1, language: "en-US" }));
                 break;
             case POPULAR_OPTION:

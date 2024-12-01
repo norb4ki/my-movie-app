@@ -14,11 +14,11 @@ const favoriteSlice = createSlice({
         getFavoriteRequest: (state) => {
             state.loading = true;
             state.error = null;
-            state.edited = false;
         },
         getFavoriteSuccess: (state, action) => {
             state.loading = false;
             state.data = action.payload;
+            state.edited = false;
         },
         getFavoriteFailure: (state, action) => {
             state.loading = false;

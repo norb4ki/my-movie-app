@@ -20,7 +20,7 @@ const movieSlice = createSlice({
         getPopularSuccess: (state, action) => {
             state.loading = false;
             state.popularData = action.payload;
-            state.lastPopularRequestTime = Date.now;
+            state.lastPopularRequestTime = Date.now();
         },
         getPopularFailure: (state, action) => {
             state.loading = false;

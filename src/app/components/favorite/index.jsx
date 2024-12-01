@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {postFavoriteRequest} from "../../redux/slices/favorite/index.js";
 import {} from './style.css'
@@ -6,8 +6,17 @@ import {isMovieFavorite} from "../../features/favorite/index.js";
 
 const FavoriteButton = ({movie_id}) => {
     const dispatch = useDispatch();
+    const data = JSON.parse(localStorage.getItem('reduxState'));
+    console.log(data)
     const is_favorite = useSelector(state=> isMovieFavorite(state, movie_id))
     const [favorite, setFavorite] = useState(is_favorite);
+    useEffect(() => {
+        const storedData = localStorage.getItem('reduxState');
+        if (storedData) {
+            const data = JSON.parse(storedData);
+            console.log(data); // Check if data is loaded correctly
+        }
+    }, []); // Runs once on mount
 
     const handleFavoriteClick = () => {
         dispatch(postFavoriteRequest({

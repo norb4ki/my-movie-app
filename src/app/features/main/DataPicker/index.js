@@ -6,8 +6,19 @@ import { getAirRequest, getPopularRequest } from "../../../redux/slices/movie/in
 
 const useDataPicker = (category) => {
     const dispatch = useDispatch();
-    const { popularData, airData } = useSelector((state) => state.movieReducer);
+    const {
+        popularData,
+        airData,
+        lastPopularRequestTime,
+        lastAirRequestTime} = useSelector((state) => state.movieReducer);
     const { data, edited } = useSelector((state) => state.favoriteReducer);
+
+    const hasPassedOneMinute = (date) => {
+        const currentTime = Date.now();
+        const timeDifference = currentTime - date;
+        return timeDifference > 60000;
+    };
+
 
     useEffect(() => {
         switch (category) {
@@ -16,15 +27,18 @@ const useDataPicker = (category) => {
                     dispatch(getFavoriteRequest({ page: 1, language: "en-US" }));
                 break;
             case POPULAR_OPTION:
-                dispatch(getPopularRequest({ page: 1, language: "en-US" }));
+                console.log(lastPopularRequestTime)
+                if(!lastPopularRequestTime || hasPassedOneMinute(lastPopularRequestTime))
+                    dispatch(getPopularRequest({ page: 1, language: "en-US" }));
                 break;
             case AIR_OPTION:
-                dispatch(getAirRequest({ page: 1, language: "en-US" }));
+                if(!lastAirRequestTime || hasPassedOneMinute(lastAirRequestTime))
+                    dispatch(getAirRequest({ page: 1, language: "en-US" }));
                 break;
             default:
                 break;
         }
-    }, [category, dispatch]);
+    }, [category, dispatch,lastPopularRequestTime]);
 
     switch (category) {
         case FAVORITE_OPTION:

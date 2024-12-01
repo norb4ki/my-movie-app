@@ -4,7 +4,9 @@ const initialState = {
     popularData: [],
     airData: [],
     loading: false,
-    error: null
+    error: null,
+    lastPopularRequestTime: null,
+    lastAirRequestTime:null
 };
 
 const movieSlice = createSlice({
@@ -18,6 +20,7 @@ const movieSlice = createSlice({
         getPopularSuccess: (state, action) => {
             state.loading = false;
             state.popularData = action.payload;
+            state.lastPopularRequestTime = Date.now;
         },
         getPopularFailure: (state, action) => {
             state.loading = false;
@@ -30,6 +33,7 @@ const movieSlice = createSlice({
         getAirSuccess: (state, action) => {
             state.loading = false;
             state.airData = action.payload;
+            state.lastAirRequestTime = Date.now();
         },
         getAirFailure: (state, action) => {
             state.loading = false;

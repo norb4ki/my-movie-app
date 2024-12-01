@@ -3,6 +3,7 @@ import "./dropdown.css";
 
 const CustomDropdown = ({ optionList, onChange }) => {
     const [isOpen, setIsOpen] = useState(false);
+
     const [selectedOption, setSelectedOption] = useState(optionList[0]);
     const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -11,7 +12,7 @@ const CustomDropdown = ({ optionList, onChange }) => {
             setIsOpen(false);
         }
         if (event.key === "Enter") {
-            setIsOpen(true); // Toggles the dropdown on Enter
+            setIsOpen(true);
         }
     };
 

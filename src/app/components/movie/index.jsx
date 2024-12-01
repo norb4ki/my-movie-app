@@ -11,7 +11,7 @@ const Movie = ({data}) => {
     };
     const imagePath = IMAGE_BASE_URL.concat(POSTER_LARGE).concat('/').concat(data.backdrop_path)
     return (
-        <div className={'card_container'} onClick={handleCardClick}>
+        <div tabIndex={0} className={'card_container'} onClick={handleCardClick}>
             <div className={'card_image-container'}>
                 <img src={imagePath} alt="poster"/>
             </div>

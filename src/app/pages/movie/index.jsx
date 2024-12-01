@@ -1,11 +1,27 @@
-import {useLocation} from "react-router-dom";
+import {useEffect, useState} from "react";
 import {IMAGE_BASE_URL, POSTER_LARGE} from "../../services/apiUtils/index.js";
 import {} from './style.css'
 import FavoriteButton from "../../components/favorite/index.jsx";
 
 const MoviePage = () => {
-    const location = useLocation()
-    const data = location.state?.data
+    const [data, setData] = useState(null);
+    const currentURL = window.location.href;
+    const match = currentURL.match(/movie\/id\/(\d+)/);
+    const id = match[1]
+
+    useEffect(() => {
+        const storedData = localStorage.getItem(`movieData/${id}`);
+        if (storedData) {
+            setData(JSON.parse(storedData));
+        } else {
+            console.error("No movie data found in localStorage.");
+        }
+    }, []);
+
+    if (!data) {
+        return <div>Loading movie details...</div>;
+    }
+
     const posterPath = `${IMAGE_BASE_URL}${POSTER_LARGE}${data.poster_path}`;
 
     return (

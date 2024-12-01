@@ -23,7 +23,7 @@ const useDataPicker = (category) => {
             default:
                 break;
         }
-    }, [category, dispatch]); // Вызывается только при изменении category
+    }, [category, dispatch]);
 
     switch (category) {
         case FAVORITE_OPTION:
